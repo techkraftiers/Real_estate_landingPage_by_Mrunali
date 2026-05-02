@@ -1,0 +1,591 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /*Login page*/
+        #login_body{
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            background-color: #F3F4F4;
+        }
+        .form-box{
+            display: none;
+            width: 90%;
+            max-width: 540px;
+            box-shadow: 0 10px 15px rgba(0,0,0,0.4);
+            padding: 2rem 2.5rem;
+            text-align: center;
+            background-color: #fff;
+            border-radius: 1rem;
+        }
+        .form-box.active{
+            display: block;
+        }
+        .form-box form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.4rem;
+        }
+        .form-box h2{
+            font-size: 2rem;
+            margin: 1.8rem 0;
+            color: #34656D;
+        }
+        form input, form textarea{
+            width: 75%;
+            padding: 1rem;
+            font-size: 1.2rem;
+            border: none;
+            background-color: #cfd8d8;
+        }
+        form button{
+            padding: .8rem 1.4rem;
+            width: 75%;
+            border: none;
+            background-color: #34656D;
+            color: #fff;
+            font-size: 1.2rem;
+            border-radius: .5rem;
+            font-weight: 400;
+            cursor: pointer;
+        }
+        form button:hover{
+            background-color: #34656D;
+        }
+        .form-box p{
+            font-size: 1.4rem;
+            margin: 1.4rem 0;
+            cursor: pointer;
+        }
+
+    </style>
+</head>
+<body id="login_body">
+    <div class="form-box active" id="login-content">
+        <h2>Sign Up</h2>
+        <form action="login_register.php" method="post">
+            <input type="email" name="email" placeholder="Enter yours email" required>
+            <input type="password" name="password" placeholder="Enter password" required>
+            <button type="submit">Login</button>
+        </form>
+        <p>Don't have an account? <a href="signUp.php">Sign Up</a></p>
+    </div>
+
+    
+
+    <script src="script.js"></script>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login & Register – myProperty</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1B6CA8;
+            --primary-dark: #145a8e;
+            --primary-light: #e8f2fb;
+            --accent: #C8392B;
+            --accent-light: #fdf0ef;
+            --bg: #f0f4f8;
+            --sidebar-bg: #0d1b2a;
+            --white: #ffffff;
+            --text-primary: #1a2332;
+            --text-secondary: #5a6a7a;
+            --text-muted: #8a9bac;
+            --border: #e2eaf2;
+            --card-shadow: 0 8px 40px rgba(27,108,168,0.13);
+            --radius: 16px;
+            --radius-sm: 8px;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--bg);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 24px 16px;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background:
+                radial-gradient(circle at 20% 20%, rgba(27,108,168,0.08) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(200,57,43,0.06) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* ── Card ── */
+        .auth-card {
+            width: 100%;
+            max-width: 460px;
+            background: var(--white);
+            border-radius: var(--radius);
+            box-shadow: var(--card-shadow);
+            overflow: hidden;
+            position: relative;
+            z-index: 1;
+            animation: fadeUp 0.45s ease both;
+        }
+
+        /* ── Brand Bar ── */
+        .auth-brand {
+            background: var(--sidebar-bg);
+            padding: 20px 32px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .brand-icon {
+            width: 38px; height: 38px;
+            border-radius: 10px;
+            background: var(--primary);
+            display: flex; align-items: center; justify-content: center;
+            color: #fff;
+            font-size: 16px;
+            flex-shrink: 0;
+        }
+
+        .auth-brand span {
+            font-family: 'Playfair Display', serif;
+            font-size: 18px;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .auth-brand p {
+            font-size: 12px;
+            color: var(--text-muted);
+            margin-left: auto;
+        }
+
+        /* ── Tab Switcher ── */
+        .auth-tabs {
+            display: flex;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .auth-tab {
+            flex: 1;
+            padding: 13px;
+            text-align: center;
+            font-size: 13.5px;
+            font-weight: 500;
+            color: var(--text-muted);
+            cursor: pointer;
+            border: none;
+            background: transparent;
+            font-family: 'DM Sans', sans-serif;
+            transition: all 0.2s;
+            border-bottom: 2px solid transparent;
+            margin-bottom: -1px;
+        }
+
+        .auth-tab.active {
+            color: var(--primary);
+            border-bottom-color: var(--primary);
+            background: var(--primary-light);
+        }
+
+        .auth-tab:hover:not(.active) { background: var(--bg); color: var(--text-secondary); }
+
+        /* ── Form Body ── */
+        .auth-body { padding: 26px 32px 30px; }
+
+        .form-box { display: none; }
+        .form-box.active { display: block; animation: fadeUp 0.3s ease both; }
+
+        .form-header { margin-bottom: 20px; }
+
+        .form-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 21px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 4px;
+        }
+
+        .form-header p { font-size: 13px; color: var(--text-muted); }
+
+        /* ── Input Groups ── */
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            margin-bottom: 13px;
+        }
+
+        .form-group label {
+            font-size: 12px;
+            font-weight: 500;
+            color: var(--text-secondary);
+        }
+
+        .input-wrap {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .input-icon {
+            position: absolute;
+            left: 13px;
+            color: var(--text-muted);
+            font-size: 13px;
+            pointer-events: none;
+        }
+
+        .input-wrap input {
+            width: 100%;
+            padding: 10px 14px 10px 36px;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            font-size: 13.5px;
+            font-family: 'DM Sans', sans-serif;
+            color: var(--text-primary);
+            background: var(--white);
+            outline: none;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+
+        .input-wrap input:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(27,108,168,0.1);
+        }
+
+        .input-wrap input::placeholder { color: var(--text-muted); }
+
+        .input-wrap.error input {
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(200,57,43,0.08);
+        }
+
+        .input-wrap.success input { border-color: #1a9e5c; }
+
+        /* Password toggle */
+        .toggle-pass {
+            position: absolute;
+            right: 12px;
+            color: var(--text-muted);
+            font-size: 13px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 0;
+            transition: color 0.15s;
+        }
+
+        .toggle-pass:hover { color: var(--primary); }
+
+        /* Error text */
+        .field-error {
+            font-size: 11px;
+            color: var(--accent);
+            display: none;
+            align-items: center;
+            gap: 4px;
+        }
+
+        /* Password strength */
+        .strength-bar {
+            display: flex;
+            gap: 4px;
+            margin-top: 5px;
+        }
+
+        .strength-seg {
+            flex: 1;
+            height: 3px;
+            border-radius: 2px;
+            background: var(--border);
+            transition: background 0.3s;
+        }
+
+        .strength-label {
+            font-size: 11px;
+            color: var(--text-muted);
+            margin-top: 3px;
+        }
+
+        /* ── Submit Button ── */
+        .btn-submit {
+            width: 100%;
+            padding: 11px;
+            border-radius: var(--radius-sm);
+            border: none;
+            background: var(--primary);
+            color: #fff;
+            font-size: 14px;
+            font-weight: 600;
+            font-family: 'DM Sans', sans-serif;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 6px;
+            transition: background 0.2s, transform 0.1s;
+        }
+
+        .btn-submit:hover { background: var(--primary-dark); }
+        .btn-submit:active { transform: scale(0.99); }
+
+        /* ── Switch text ── */
+        .switch-text {
+            text-align: center;
+            font-size: 12.5px;
+            color: var(--text-muted);
+            margin-top: 16px;
+        }
+
+        .switch-text a {
+            color: var(--primary);
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .switch-text a:hover { text-decoration: underline; }
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(14px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+<div class="auth-card">
+
+    <!-- Brand bar -->
+    <!-- <div class="auth-brand">
+        <div class="brand-icon"><i class="fa-solid fa-house-chimney"></i></div>
+        <span>myProperty</span>
+        <p>India's trusted platform</p>
+    </div> -->
+
+    <!-- Tabs -->
+    <!-- <div class="auth-tabs">
+        <button class="auth-tab active" id="tab-login" onclick="showForm('login-content', this)">
+            <i class="fa-solid fa-right-to-bracket" style="margin-right:6px"></i> Sign In
+        </button>
+        <button class="auth-tab" id="tab-register" onclick="showForm('register-content', this)">
+            <i class="fa-solid fa-user-plus" style="margin-right:6px"></i> Register
+        </button>
+    </div> -->
+
+    <!-- Forms -->
+    <div class="auth-body">
+
+        <!-- LOGIN -->
+        <div class="form-box active" id="login-content">
+            <div class="form-header">
+                <h2>Welcome back</h2>
+                <p>Sign in to continue to your account</p>
+            </div>
+            <form action="login_register.php" method="post">
+                <input type="hidden" name="action" value="login">
+
+                <div class="form-group">
+                    <label>Email Address</label>
+                    <div class="input-wrap">
+                        <i class="input-icon fa-solid fa-envelope"></i>
+                        <input type="email" name="email" placeholder="you@example.com" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Password</label>
+                    <div class="input-wrap">
+                        <i class="input-icon fa-solid fa-lock"></i>
+                        <input type="password" name="password" id="loginPass" placeholder="Enter your password" required>
+                        <button type="button" class="toggle-pass" onclick="togglePass('loginPass', this)">
+                            <i class="fa-regular fa-eye"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn-submit">
+                    <i class="fa-solid fa-right-to-bracket"></i> Sign In
+                </button>
+            </form>
+            <p class="switch-text">
+                Don't have an account?
+                <a onclick="showForm('register-content', document.getElementById('tab-register'))">Create one</a>
+            </p>
+        </div>
+
+        <!-- REGISTER -->
+        <div class="form-box" id="register-content">
+            <div class="form-header">
+                <h2>Create account</h2>
+                <p>Fill in your details to get started</p>
+            </div>
+            <form action="login_register.php" method="post" id="registerForm">
+                <input type="hidden" name="action" value="register">
+
+                <div class="form-group">
+                    <label>Full Name</label>
+                    <div class="input-wrap" id="regNameWrap">
+                        <i class="input-icon fa-solid fa-user"></i>
+                        <input type="text" name="name" id="regName" placeholder="e.g. Rahul Sharma" required>
+                    </div>
+                    <span class="field-error" id="regNameErr"><i class="fa-solid fa-circle-exclamation"></i> Please enter your full name.</span>
+                </div>
+
+                <div class="form-group">
+                    <label>Email Address</label>
+                    <div class="input-wrap" id="regEmailWrap">
+                        <i class="input-icon fa-solid fa-envelope"></i>
+                        <input type="email" name="email" id="regEmail" placeholder="you@example.com" required>
+                    </div>
+                    <span class="field-error" id="regEmailErr"><i class="fa-solid fa-circle-exclamation"></i> Please enter a valid email.</span>
+                </div>
+
+                <div class="form-group">
+                    <label>Mobile Number</label>
+                    <div class="input-wrap" id="regMobileWrap">
+                        <i class="input-icon fa-solid fa-phone"></i>
+                        <input type="tel" name="mobile" id="regMobile" placeholder="10-digit mobile number" maxlength="10" required>
+                    </div>
+                    <span class="field-error" id="regMobileErr"><i class="fa-solid fa-circle-exclamation"></i> Enter a valid 10-digit number.</span>
+                </div>
+
+                <div class="form-group">
+                    <label>Password</label>
+                    <div class="input-wrap" id="regPassWrap">
+                        <i class="input-icon fa-solid fa-lock"></i>
+                        <input type="password" name="password" id="regPass" placeholder="Min 8 characters" required oninput="checkStrength(this.value)">
+                        <button type="button" class="toggle-pass" onclick="togglePass('regPass', this)">
+                            <i class="fa-regular fa-eye"></i>
+                        </button>
+                    </div>
+                    <div class="strength-bar">
+                        <div class="strength-seg" id="s1"></div>
+                        <div class="strength-seg" id="s2"></div>
+                        <div class="strength-seg" id="s3"></div>
+                        <div class="strength-seg" id="s4"></div>
+                    </div>
+                    <div class="strength-label" id="strengthLabel"></div>
+                    <span class="field-error" id="regPassErr"><i class="fa-solid fa-circle-exclamation"></i> Password must be at least 8 characters.</span>
+                </div>
+
+                <div class="form-group">
+                    <label>Confirm Password</label>
+                    <div class="input-wrap" id="regConfirmWrap">
+                        <i class="input-icon fa-solid fa-lock"></i>
+                        <input type="password" name="confirm_password" id="regConfirm" placeholder="Re-enter your password" required>
+                        <button type="button" class="toggle-pass" onclick="togglePass('regConfirm', this)">
+                            <i class="fa-regular fa-eye"></i>
+                        </button>
+                    </div>
+                    <span class="field-error" id="regConfirmErr"><i class="fa-solid fa-circle-exclamation"></i> Passwords do not match.</span>
+                </div>
+
+                <button type="submit" class="btn-submit">
+                    <i class="fa-solid fa-user-plus"></i> Create Account
+                </button>
+            </form>
+            <p class="switch-text">
+                Already have an account?
+                <a onclick="showForm('login-content', document.getElementById('tab-login'))">Sign in</a>
+            </p>
+        </div>
+
+    </div>
+</div>
+
+<script>
+    function showForm(id, tabEl) {
+        document.querySelectorAll('.form-box').forEach(f => f.classList.remove('active'));
+        document.querySelectorAll('.auth-tab').forEach(t => t.classList.remove('active'));
+        document.getElementById(id).classList.add('active');
+        if (tabEl) tabEl.classList.add('active');
+    }
+
+    function togglePass(inputId, btn) {
+        const inp  = document.getElementById(inputId);
+        const icon = btn.querySelector('i');
+        if (inp.type === 'password') {
+            inp.type = 'text';
+            icon.className = 'fa-regular fa-eye-slash';
+        } else {
+            inp.type = 'password';
+            icon.className = 'fa-regular fa-eye';
+        }
+    }
+
+    function checkStrength(val) {
+        const colors = ['#e24b4a','#e0714a','#d4890a','#1a9e5c'];
+        const labels = ['Weak','Fair','Good','Strong'];
+        let score = 0;
+        if (val.length >= 8)           score++;
+        if (/[A-Z]/.test(val))         score++;
+        if (/[0-9]/.test(val))         score++;
+        if (/[^A-Za-z0-9]/.test(val))  score++;
+        ['s1','s2','s3','s4'].forEach((id, i) => {
+            document.getElementById(id).style.background = i < score ? colors[score-1] : 'var(--border)';
+        });
+        const lbl = document.getElementById('strengthLabel');
+        lbl.textContent = val.length > 0 ? labels[score-1] || '' : '';
+        lbl.style.color  = val.length > 0 ? colors[score-1] : 'var(--text-muted)';
+    }
+
+    document.getElementById('registerForm').addEventListener('submit', function(e) {
+        let valid = true;
+        const checks = [
+            { id: 'regName',    wrap: 'regNameWrap',    err: 'regNameErr',    test: v => v.trim().length >= 2 },
+            { id: 'regEmail',   wrap: 'regEmailWrap',   err: 'regEmailErr',   test: v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v) },
+            { id: 'regMobile',  wrap: 'regMobileWrap',  err: 'regMobileErr',  test: v => /^[6-9]\d{9}$/.test(v) },
+            { id: 'regPass',    wrap: 'regPassWrap',    err: 'regPassErr',    test: v => v.length >= 8 },
+            { id: 'regConfirm', wrap: 'regConfirmWrap', err: 'regConfirmErr', test: v => v === document.getElementById('regPass').value && v !== '' },
+        ];
+        checks.forEach(c => {
+            const val = document.getElementById(c.id).value;
+            if (!c.test(val)) {
+                document.getElementById(c.wrap).classList.add('error');
+                document.getElementById(c.err).style.display = 'flex';
+                valid = false;
+            } else {
+                document.getElementById(c.wrap).classList.remove('error');
+                document.getElementById(c.wrap).classList.add('success');
+                document.getElementById(c.err).style.display = 'none';
+            }
+        });
+        if (!valid) e.preventDefault();
+    });
+
+    document.querySelectorAll('.input-wrap input').forEach(inp => {
+        inp.addEventListener('focus', function() {
+            this.closest('.input-wrap').classList.remove('success','error');
+        });
+    });
+    // Auto open register tab if URL has #register
+if (window.location.hash === '#register') {
+    showForm('register-content', document.getElementById('tab-register'));
+}
+</script>
+
+</body>
+</html>

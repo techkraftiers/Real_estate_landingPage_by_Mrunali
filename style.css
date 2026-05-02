@@ -1,0 +1,1561 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+*{ 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+} 
+html{ 
+    font-size: 65.5%; 
+    scroll-behavior: smooth; 
+    scroll-padding-top: 6rem; 
+    overflow-x: hidden; 
+} body{ 
+    font-family: 'Roboto', sans-serif; 
+} 
+
+header{ 
+    top: 0; 
+    right: 0; 
+    left: 0; 
+    position: fixed; 
+    display: flex; 
+    align-items: center; /* FIX alignment */
+    justify-content: space-between; 
+    cursor: pointer; 
+    width: 100%; 
+    padding: 2rem 8%; 
+    box-shadow: 0 4px 6px rgba(0,0,0,0.6); 
+    background-color: #fff; 
+    z-index: 1000; 
+} 
+.logo{ 
+    font-size: 1.4rem; 
+    color: #2FA4D7; 
+} 
+.logo span{ 
+    font-weight: 600; 
+} 
+.navbar a{ 
+    text-decoration: none; 
+    font-size: 1.4rem; 
+    padding: 1rem 1.2rem; 
+    color: #555; 
+    font-weight: 500; 
+} 
+.navbar a:hover{ 
+    color: #2FA4D7; 
+} 
+#menu{ 
+    font-size: 2rem; 
+    display: none; 
+}
+.navbar .nav-link.active{ 
+    color: #2FA4D7; 
+} 
+.signUp{ 
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+} 
+.signUp .login{ 
+    border: none;
+    text-decoration: none;
+    color: #555;
+    padding: 0.6rem 1.2rem;
+    font-size: 1.3rem;
+    background-color: transparent;
+    border-radius: 5px;
+    transition: 0.3s;
+} 
+.login:hover{ 
+    color: #2FA4D7;
+    background: rgba(47,164,215,0.1);
+} 
+.signUp .sign{ 
+    text-decoration: none;
+    border: none;
+    color: #fff;
+    padding: 0.6rem 1.5rem;
+    font-size: 1.3rem;
+    background-color: #2FA4D7;
+    border-radius: 5px;
+    transition: 0.3s;
+} 
+.sign:hover{ 
+    background-color: #0db6ff; 
+} 
+section{ 
+    padding: 2rem 8%; 
+}
+
+/* === Home section style === */
+.home-section{
+    position: relative;
+    min-height: 100vh;
+    padding-top: 70px;
+    background: url('./images/bg1.jpg') no-repeat center/cover;;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 2rem;
+    background-color: #2FA4D7;
+}
+.home-container{
+    margin-top: 10rem;
+    width: 400px;
+    z-index: 1;
+}
+.home-container h1{
+    font-size: 4rem;
+    color: #fff;
+    margin-bottom: 3rem;
+}
+.home-container p{
+    font-size: 1.8rem;
+    line-height: 1.6;
+    color: #fff;
+    margin-bottom: 2rem;
+}
+.home-cta{
+    display: flex;
+    gap: 1.4rem;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    margin-top: 2rem;
+}
+.cta-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
+    background: #e8921a;
+    color: #fff;
+    font-size: 1.6rem;
+    font-weight: 600;
+    padding: 1.4rem 2.8rem;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: var(--transition);
+    box-shadow: 0 6px 25px rgba(245,166,35,0.45);
+}
+
+.cta-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 35px rgba(245,166,35,0.55);
+}
+.cta-secondary {
+    display: inline-flex;
+    align-items: center;
+    background: rgba(255,255,255,0.12);
+    color: #fff;
+    font-size: 1.6rem;
+    font-weight: 500;
+    padding: 1.4rem 2.4rem;
+    border-radius: 10px;
+    text-decoration: none;
+    border: 1px solid rgba(255,255,255,0.25);
+    backdrop-filter: blur(8px);
+    transition: var(--transition);
+}
+
+.cta-secondary:hover {
+    background: rgba(255,255,255,0.22);
+    transform: translateY(-2px);
+}
+/* === Servise style === */
+.services-section{
+    background-color: #edfbff;
+    margin-bottom: 4rem;
+}
+.services-container{
+    margin: 4rem 0;
+}
+.services-container h1{
+    font-size: 3rem;
+    text-align: center;
+    color: #333;
+    margin-bottom: 4rem;
+}
+.services-container h1 span{
+    color: #2FA4D7;
+}
+.servise-boxes{
+    display: flex;
+    gap: 2rem;
+}
+.box{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.4rem;
+    background-color: #fff;
+    border-radius: .8rem;
+    padding: 2rem;
+    transition: .3s ease-in-out;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+}
+.box i{
+    font-size: 4rem;
+    color: #2FA4D7;
+    margin-top: 1rem;
+}
+.box:hover{
+    background-color: #2FA4D7;
+    color: #fff;
+}
+.box:hover i{
+    color: #fff;
+}
+.box h3{
+    font-size: 2rem;
+    margin: 1.4rem 0;
+}
+.box p{
+    font-size: 1.4rem;
+    text-align: center;
+}
+
+
+/* ===== SELL SECTION ===== */
+.sell-section {
+    padding: 3rem 7%;
+    background: #edfbff;
+    position: relative;
+}
+
+.sell-container {
+    max-width: 1200px;
+    margin: auto;
+    position: relative;
+}
+
+.sell-container h1, 
+.sell-container p {
+    text-align: center;
+    width: 100%;
+}
+
+.sell-container h1 {
+    font-size: 2.8rem;
+    margin-bottom: 0.5rem;
+}
+
+.sell-container h1 span {
+    color: #2FA4D7;
+}
+
+.sell-container p {
+    font-size: 1.4rem;
+    color: #666;
+    margin-bottom: 2rem;
+}
+
+/* --- Slider Box --- */
+.sell-box {
+    display: grid;
+    /* Changed to minmax(260px) to allow cards to be smaller and fit better */
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1.5rem; /* Reduced gap to bring cards closer together */
+    padding-bottom: 1.5rem;
+    transition: transform 0.5s ease-in-out; 
+    will-change: transform;
+}
+
+.sell-box::-webkit-scrollbar {
+    display: none;
+}
+
+/* --- Property Cards (Sell) --- */
+.box-content {
+    width: 100%; 
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08); /* Softer shadow looks less bulky */
+    transition: 0.3s ease;
+    position: relative;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: 0.3s ease;
+}
+
+.card-img {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    position: relative;
+}
+
+.card-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.box-sell {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: rgba(0,0,0,0.3);
+    color: #fff;
+    padding: .8rem 1.2rem;
+    font-size: 1.2rem;
+    font-weight: 500;
+    border-radius: 20px;
+    backdrop-filter: blur(4px);
+    display: inline-block;
+    transition: 0.3s;
+}
+.card-body {
+    padding: 1.2rem; /* Reduced padding to make the card more compact */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    transition: 0.3s;
+}
+.card-body h2 { 
+    font-size: 1.4rem; /* Scaled down slightly */
+    margin-bottom: 0.4rem; 
+}
+.location {
+    display: flex;
+    align-items: center;
+    gap: 1rem; /* Space between the map icon and text */
+    font-size: 1.3rem;
+    color: #666;
+    margin-bottom: 1.2rem;
+}
+.sell-icon {
+    display: flex;
+    gap: 0.8rem; /* Vertical space between each feature line */
+    margin-bottom: 1.5rem;
+}
+
+.icon-text { 
+    display: flex;
+    align-items: center;
+    gap: .6rem; /* Space between the bedroom/area icon and the text */
+    font-size: 1.2rem;
+    color: #555;
+}
+
+.property-price {
+    font-size: 1.4rem; /* Scaled down slightly */
+    font-weight: 700;
+    margin: 0 0 1rem 0; 
+    color: #333;
+}
+
+/* --- Sell Card Hover Effects --- */
+.box-content:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+.box-content:hover .card-body {
+    background: #2FA4D7;
+}
+
+.box-content:hover .box-sell {
+    background: #154eb1;
+    color: #fff;
+}
+
+.box-content:hover .card-body h2,
+.box-content:hover .icon-text,
+.box-content:hover .property-price,
+.box-content:hover .location,
+.box-content:hover i {
+    color: #fff;
+}
+
+/* === VIEW BUTTON  === */
+.view-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 1rem 0;
+    background-color: #0db6ff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 25px; /* Keeps your rounded red/blue style */
+    font-size: 1rem;
+    transition: 0.3s;
+}
+.box-content:hover .view-btn,
+.rent-card:hover .view-btn {
+    background: #fff;
+    color: #154eb1;
+}
+
+/* === RENT SECTION === */
+.rent-container {
+    width: 90%;
+    margin: auto;
+    text-align: center;
+}
+
+.rent-box {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-top: 3rem;
+}
+.rent-card {
+    background: #fff;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: 0.3s ease;
+}
+.rent-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    background-color: #2FA4D7;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+.rent-card:hover *:not(.view-btn):not(i){
+    color: #fff !important;
+}
+.rent-img img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+/* === VIEW PAGE DETAILS ===
+.view-content {
+    max-width: 1200px;
+    margin: 3rem auto;
+    display: flex;
+    align-items: flex-start;
+    gap: 4rem;
+    padding: 2rem;
+    background: #fff;
+    border-radius: 2rem;
+}
+.img-box { flex: 0 0 550px; width: 550px; }
+.img-box img {
+    width: 100%;
+    height: 450px;
+    object-fit: cover;
+    border-radius: 1.5rem;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+.details { flex: 1; display: flex; flex-direction: column; }
+.type {
+    display: inline-block;
+    background: rgba(47, 164, 215, 0.15);
+    color: #2F5597;
+    padding: 0.6rem 1.6rem;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+}
+
+.details h1 {
+    font-size: 3.2rem;
+    color: #2F5597;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+}
+
+.pro-price {
+    font-size: 3rem;
+    color: #333;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+} */
+
+/* === IMPROVED VIEW PAGE DETAILS === */
+.view-content {
+    max-width: 1100px;
+    margin: 4rem auto;
+    display: flex;
+    gap: 4rem;
+    padding: 3rem;
+    background: #fff;
+    border-radius: 2.5rem;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+}
+
+/* 1. Image Styling */
+.img-box { 
+    flex: 0 0 500px; 
+}
+.img-box img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    border-radius: 2rem;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+}
+
+/* 2. Details Header */
+.details { flex: 1; }
+
+.type {
+    display: inline-block;
+    background: #2FA4D7;
+    color: #fff;
+    padding: 0.5rem 1.5rem;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.details h1 {
+    font-size: 3.5rem;
+    color: #333;
+    margin-bottom: 0.5rem;
+}
+
+.loaction {
+    font-size: 1.6rem;
+    color: #666;
+    margin-bottom: 2rem;
+}
+
+.pro-price {
+    font-size: 3.2rem;
+    color: #2FA4D7;
+    font-weight: 800;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 2rem;
+    margin-bottom: 2rem;
+}
+
+/* 3. Feature Icons Grid */
+.pro-info {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+}
+
+.pro-info p {
+    background: #f8fdff;
+    padding: 1.5rem;
+    border-radius: 1.2rem;
+    border: 1px solid #eef7fb;
+    text-align: center;
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: #444;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.pro-info p i {
+    color: #2FA4D7;
+    font-size: 2rem;
+}
+
+/* 4. Description */
+.description h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #333;
+}
+.description p {
+    font-size: 1.5rem;
+    line-height: 1.8;
+    color: #555;
+    margin-bottom: 3rem;
+}
+
+/* 5. Action Buttons */
+.actions {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.actions button {
+    padding: 1.5rem 3rem;
+    border: none;
+    border-radius: 1rem;
+    font-size: 1.6rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.actions button:first-child {
+    background: #2FA4D7;
+    color: white;
+    flex: 1;
+}
+
+.actions button:first-child:hover {
+    background: #2F5597;
+    box-shadow: 0 10px 20px rgba(47, 164, 215, 0.3);
+}
+
+.actions .hart, .actions button:last-child {
+    background: #f0f0f0;
+    color: #333;
+    padding: 1.5rem;
+}
+
+.actions .hart:hover { color: #e74c3c; background: #ffeef0; }
+
+/* === Feature section Style ===*/
+.feactures{
+    background-color: #edfbff;
+}
+.feture-content{
+    margin: 2rem 0;
+}
+
+.feture-content h1{
+    font-size: 3rem;
+    color: #333;
+    margin: 3rem 0;
+    text-align: center;
+}
+.feture-content h1 span{
+    color: #2FA4D7;
+}
+.feature-container{
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+}
+.card-item{
+    width: 320px; /* Keep this fixed so they are all same size */
+    background-color: #fff;
+    padding: 1.2rem;
+    border-radius: .8rem;
+    transition: 0.3s;
+    flex-shrink: 0; /* Prevents cards from squishing */
+}
+.card-item img{
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: .8rem;
+}
+.card-item h2{
+    color: #333;
+    font-size: 1.8rem;
+    margin: 1rem 0;
+}
+.card-item p{
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    line-height: 1.6;
+}
+
+.slider-track{
+    display: flex;
+    gap: 20px; /* Control the exact gap size here */
+    transition: transform 0.5s ease;
+    padding: 1rem;
+}
+
+.card-item:hover{
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+.slide{
+    /* min-width: calc(100% / 3);  <-- REMOVE OR COMMENT THIS */
+    display: flex;
+    justify-content: center;
+}
+.prev{
+    left: 10px;
+}
+.next{
+    right: 10px;
+}
+.prev, .next{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #2FA4D7;
+    color: #fff;
+    border: none;
+    padding: 1rem;
+    cursor: pointer;
+    z-index: 2;
+}
+
+/* Contact Section style */
+.contact-section{
+    position: relative;
+    min-height: 100vh;
+    background: url('./images/house2.jpg') no-repeat center/cover;
+    display: flex;
+    align-items: center;
+    padding: 5rem 9%;
+}
+.overlay{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+}
+.contact-container{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 2;
+    width: 100%;
+    gap: 6rem;
+}
+.contact-left h1{
+    color: #fff;
+    font-size: 3rem;
+    margin-bottom: .8rem;
+}
+.contact-left h2{
+    color: #fff;
+    font-size: 2.4rem;
+    margin-bottom: 2rem;
+}
+.info{
+    margin-bottom: 1.4rem;
+}
+.info h3{
+    color: #fff;
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+}
+.info p i{
+    color: #fff;
+    font-size: 1.5rem;
+    margin: .4rem 0;
+}
+.info p{
+    color: #fff;
+    font-size: 1.4rem;
+}
+.social{
+    margin-top: 2.5rem;
+    display: flex;
+    gap: 1.5rem;
+}
+.social a{
+    text-decoration: none;
+}
+.social a i{
+    color: #fff;
+    font-size: 3rem;
+}
+.fa-instagram:hover{
+    color: #E1306C;
+}
+
+.fa-twitter:hover{
+    color: #1DA1F2;
+}
+.fa-facebook:hover{
+    color: #1877F2;
+}
+.contact-form{
+    width: 400px;
+    background-color: #fff;
+    padding: 3rem;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+}
+.contact-form h2{
+    color: #2F5597;
+    margin: 2rem 0;
+    font-size: 2.5rem;
+}
+.contact-form input, 
+.contact-form textarea{
+    width: 100%;
+    border: none;
+    outline: none;
+    margin: .5rem 0;
+    padding: 1rem;
+    background-color: #cbefff;
+    color: #333;
+}
+.contact-form button{
+    width: 100%;
+    border: none;
+    padding: 1rem;
+    background-color: #2F5597;
+    color: #fff;
+    font-size: 1.7rem;
+    font-weight: 600;
+}
+.contact-form button:hover{
+    background-color: #154eb1;
+}
+
+/*Footer*/
+footer{
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem;
+}
+footer p{
+    font-size: 1.4rem;
+    color: #333;
+}
+footer p span{
+    color: #0db6ff;
+}
+
+
+/* --- 3. Property Features Grid --- */
+.pro-info {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 2.5rem;
+    padding: 2rem;
+    background: #f8fbff;
+    border-radius: 1.5rem;
+}
+
+.pro-info p {
+    font-size: 1.5rem;
+    color: #333;
+    font-weight: 600;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.pro-info i {
+    font-size: 2rem;
+    color: #2FA4D7;
+}
+
+/* --- 4. Description Section --- */
+.description {
+    margin-bottom: 3rem;
+}
+
+.description h2 {
+    font-size: 2.2rem;
+    color: #333;
+    margin-bottom: 1rem;
+    position: relative;
+    padding-bottom: 0.5rem;
+}
+
+.description h2::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 50px;
+    height: 3px;
+    background-color: #2FA4D7;
+}
+
+.description p {
+    font-size: 1.6rem;
+    line-height: 1.8;
+    color: #555;
+}
+
+/* --- 5. Action Buttons --- */
+.actions {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.actions button {
+    flex: 1; /* Buttons share width equally */
+    height: 55px;
+    border: none;
+    border-radius: 12px;
+    font-size: 1.6rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+/* Specific Button Colors */
+.actions button:nth-child(1) { background: #2F5597; color: #fff; } /* Primary Action */
+.actions .hart { background: #f0f4f8; color: #2F5597; flex: 0 0 60px; } /* Small Square Button */
+.actions button:last-child { background: #f0f4f8; color: #2F5597; flex: 0 0 60px; }
+
+.actions button:hover {
+    transform: translateY(-3px);
+    filter: brightness(1.1);
+}
+
+.actions .hart:hover {
+    background: #e74c3c;
+    color: #fff;
+}
+
+.post{
+    max-width: 1200px;
+    margin: 3rem auto;
+}
+.post .back-btn{
+    position: absolute;
+    top: 3rem;
+    left: 1.8rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;   
+    background: #2F5597;
+    color: #fff;
+    padding: 1rem;
+    border-radius: .8rem;
+    text-decoration: none;
+    font-weight: 500;
+    transition: 0.3s;
+}
+.post .back-btn i{
+    font-size: 1.4rem;
+}
+.post .back-btn:hover{
+    background: #2FA4D7;
+}
+.post h1{
+    font-size: 2.4rem;
+    color: #333;
+    text-align: center;
+    margin: 3rem 0;
+}
+.post span{
+    color: #2F5597;
+}
+.post form{
+    margin-top: 2rem;
+    max-width: 800px;
+    width: 100%;
+    background-color: #fff;
+    border-radius: 1rem;
+    box-shadow: 0 8px 12px rgba(0,0,0,0.4);
+    margin: 0 auto;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+.post form input,
+.post form textarea,
+.post select{
+    width: 100%;
+    padding: .8rem;
+    border: none;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    outline: none;
+    color: #000;
+}
+.post form input[type="file"]{
+    border: none;
+}
+.form-btn{
+    background-color: #154eb1;
+    color: #fff;
+    border: none;
+    border-radius: .8rem;
+    padding: 1rem;
+}
+/* Hide the default browser input */
+.custom-file-upload input[type="file"] {
+  display: none;
+}
+
+/* Style the "Button" part */
+.upload-button {
+    margin: 1.4rem 0;
+    display: inline-block;
+    padding: 8px 16px;
+    background-color: #f0f0f0;
+    border: 1px solid #999;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: sans-serif;
+    font-size: 14px;
+    transition: background-color 0.2s;
+}
+
+.upload-button:hover {
+    background-color: #e0e0e0;
+}
+
+/* Style the text next to the button */
+.file-name {
+    margin-left: 10px;
+    font-family: sans-serif;
+    font-size: 14px;
+    color: #333;
+}
+
+/* === Filter section === */
+.main-filter-section {
+    padding: 40px 20px;
+    background: #fff;
+    margin-top: -50px; /* Overlaps slightly with home section for a modern look */
+    position: relative;
+    z-index: 10;
+}
+
+.filter-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+}
+
+#globalFilterForm {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    align-items: flex-end;
+}
+
+.filter-item {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.filter-item label {
+    font-size: 14px;
+    font-weight: 700;
+    color: #333;
+}
+
+.filter-item select {
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background: #fafafa;
+    font-size: 15px;
+    outline: none;
+    cursor: pointer;
+}
+.filter-item input[type="number"] {
+    padding: 12px; /* Matches the select padding */
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background: #fafafa;
+    font-size: 15px;
+    outline: none;
+    width: 100%;
+    box-sizing: border-box; /* CRITICAL: Prevents input from stretching too wide */
+}
+.filter-item input[type="number"]:focus {
+    border-color: #0d6efd;
+    background: #fff;
+}
+.filter-item select:focus {
+    border-color: #0d6efd;
+}
+/* 1. Unify Select and Input heights */
+.filter-item select, 
+.filter-item input[type="number"] {
+    width: 100%;
+    height: 48px; /* Force consistent height */
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background: #fafafa;
+    font-size: 15px;
+    outline: none;
+    box-sizing: border-box; /* Ensures padding is included in the 48px height */
+}
+
+/* 2. Fix Search and Clear button heights */
+.main-search-btn, 
+.clear-btn {
+    height: 48px; /* Must match the input height exactly */
+    padding: 0 25px; /* Use horizontal padding only */
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    border: none;
+    transition: 0.3s;
+    box-sizing: border-box;
+}
+.filter-action-group {
+    display: flex;
+    flex-direction: column; /* Stacks Search on top of Clear as seen in your image */
+    gap: 10px;
+    align-self: flex-end;
+}
+.main-search-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: linear-gradient(135deg, #0d6efd, #0a58ca);
+    color: white;
+    padding: 12px 20px; 
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;   
+}
+
+.main-search-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(13, 110, 253, 0.3);
+}
+/* Container for the results inside the filter section */
+.filter-results-grid {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+    min-height: 100px;
+}
+
+.placeholder-text {
+    grid-column: 1 / -1;
+    text-align: center;
+    color: #888;
+    font-style: italic;
+    padding: 20px;
+}
+
+/* Ensure images inside this small area don't break layout */
+.filter-results-grid .box-content {
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+.clear-btn {
+    background: #f8f9fa; /* Lighter, cleaner look */
+    color: #444;
+    padding: 12px 20px; /* Aligns height better with search button */
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.clear-btn:hover {
+    background: #ececec;
+    border-color: #bbb;
+    color: #000;
+}
+
+
+/* Animation for the results appearing */
+#filterResultDisplay {
+    transition: all 0.4s ease-in-out;
+}
+
+/* 1. Base style for the new class */
+.filter-box-content {
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: all 0.3s ease; /* Makes the color change smooth */
+    cursor: pointer;
+}
+
+/* 2. Hover effect: Background turns blue, text turns white */
+.filter-box-content:hover {
+    background-color: #0d6efd; /* Your theme blue */
+    transform: translateY(-5px); /* Adds a slight lift */
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+/* 3. Force all text inside to be white on hover */
+.filter-box-content:hover h3,
+.filter-box-content:hover p,
+.filter-box-content:hover i,
+.filter-box-content:hover .filter-view-btn {
+    color: #ffffff !important;
+}
+
+/* 5. Ensure the View Details link doesn't have an underline on hover */
+.filter-box-content .filter-view-btn{
+    display: inline-block;
+    margin: 1rem 0;
+    padding: 10px 20px;
+    background: #ff6b6b;
+    color: #fff;
+    border-radius: 25px;
+    text-decoration: none;
+    transition: 0.3s;
+}
+.filter-box-content:hover a {
+    text-decoration: none;
+}
+.filter-box-content:hover .filter-view-btn{
+    background: transparent;
+    border: 1px solid white;
+}
+
+/* ========================= */
+/* ===== RESPONSIVE CSS ===== */
+/* ========================= */
+
+/* ===== 1200px ===== */
+@media (max-width: 1200px){
+    html{
+        font-size: 58%;
+    }
+
+    header{
+        padding: 1.5rem 8%;
+    }
+
+    section{
+        padding: 4rem 5%;
+    }
+
+    .sell-box{
+        gap: 1.5rem;
+    }
+
+    .box-content{
+        min-width: 260px;
+    }
+}
+
+
+/* ===== 992px (Tablet) ===== */
+@media (max-width: 992px){
+    html{
+        font-size: 55%;
+    }
+
+    /* NAVBAR */
+    header{
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .signUp{
+        display: none;
+    }
+    .navbar{
+        display: none; 
+        flex-direction: column;
+        width: 100%;
+        background: #fff;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        z-index: 1000;
+        border-bottom: 1px solid #eee;
+    }
+    .signUp {
+        display: none; 
+        position: absolute;
+        top: 300px; /* Adjust this value based on how long your menu is */
+        left: 0;
+        width: 100%;
+        background: #fff;
+        padding: 2rem;
+        flex-direction: row;
+        justify-content: center;
+        gap: 15px;
+        box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+        z-index: 1000;
+        border-top: 1px solid #eee;
+    }
+    .navbar a:hover{ 
+        background-color: #fff;
+        color: #2FA4D7; 
+    } 
+    /* 2. When the navbar is active, show the signUp div too */
+    .navbar.active ~ .signUp {
+        display: flex;
+        opacity: 1;
+        /* Show buttons almost immediately after links */
+        transition: all 0.2s ease 0.35s;
+    }
+    .navbar .nav-link.active{ 
+        background: #fff;
+        color: #2FA4D7; 
+    } 
+
+    .navbar.active{
+        display: flex;
+    }
+    .navbar a{
+        display: block;
+        width: 100%;
+        padding: 1.5rem 8%;
+        font-size: 1.6rem;
+        color: #444;
+        border-bottom: 1px solid #f1f1f1;
+        opacity: 0;
+        transform: translateY(-10px); /* Smaller movement is faster */
+        transition: transform 0.2s ease, opacity 0.2s ease; /* Faster duration */
+        position: relative;
+    }
+    .navbar a:hover {
+        background-color: #f9fdff;
+        color: #2FA4D7;
+        padding-left: 10%; /* Slight slide effect on hover */
+        opacity: 1;
+        transform: translateY(0);
+    }
+    .navbar.active a {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    /* Snappy Staggered Delays (40ms instead of 100ms) */
+    .navbar.active a:nth-child(1) { transition-delay: 0.04s; }
+    .navbar.active a:nth-child(2) { transition-delay: 0.08s; }
+    .navbar.active a:nth-child(3) { transition-delay: 0.12s; }
+    .navbar.active a:nth-child(4) { transition-delay: 0.16s; }
+    .navbar.active a:nth-child(5) { transition-delay: 0.20s; }
+    .navbar.active a:nth-child(6) { transition-delay: 0.24s; }
+    .navbar.active a:nth-child(7) { transition-delay: 0.28s; }
+    .navbar a.active {
+        color: #2FA4D7;
+        background-color: #f0faff;
+        font-weight: 700;
+    }
+    .navbar a.active::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 5px; /* The blue vertical indicator */
+        background-color: #2FA4D7;
+    }
+
+    /* Remove border from the last link to keep it clean */
+    .navbar a:last-of-type {
+        border-bottom: none;
+    }
+    #menu{
+        display: block;
+        position: absolute;
+        right: 15px;
+        cursor: pointer;
+    }
+    .signUp{
+        display: none; 
+        width: 100%;
+        background: #fff;
+        padding: 2rem;
+        flex-direction: row;
+        justify-content: center;
+        gap: 15px;
+        border-top: 1px solid #eee;
+        /* Remove absolute positioning to keep it under links */
+        position: relative; 
+        top: 1rem;
+    }
+    /* 3. Style the buttons to look clean */
+    .signUp .login, .signUp .sign {
+        width: 130px;
+        text-align: center;
+        padding: 1rem;
+        border-radius: 8px;
+        font-size: 1.4rem;
+        text-decoration: none;
+    }
+
+    /* Primary CTA: Login Button (Keep it solid blue) */
+    .signUp .login {
+        border: none;
+        background-color: #2FA4D7;
+        color: #fff;
+    }
+    .signUp .login:hover {
+        background-color: #2284af; /* Darker blue on hover */
+    }
+    /* Secondary CTA: Sign Up Button (Give it a clear outline) */
+    .signUp .sign {
+        background-color: #fff;
+        color: #2FA4D7;
+        border: 2px solid #2FA4D7; /* Solid border for clarity */
+    }
+    .signUp .sign:hover {
+        background: #f0faff; /* Light blue background on hover for depth */
+    }
+    /* HOME */
+    .home-container h1{
+        font-size: 3rem;
+    }
+
+    /* GRID */
+    .sell-container .sell-box,
+    .rent-box{
+        grid-template-columns: repeat(2,1fr);
+    }
+
+    /* CARDS */
+    .card-img{
+        height: 180px;
+    }
+
+    /* CONTACT */
+    .contact-container{
+        gap: 3rem;
+    }
+
+    /* VIEW PAGE */
+    .view-content {
+        flex-direction: column;
+        margin: 1rem;
+        padding: 1.5rem;
+    }
+    .img-box {
+        width: 100%;
+        flex: none;
+    }
+    .img-box img {
+        height: 300px;
+    }
+    .details h1 {
+        font-size: 2.8rem;
+    }
+}
+
+
+/* ===== 768px ===== */
+@media (max-width: 768px){
+
+    html{
+        font-size: 52%;
+    }
+
+    section{
+        padding: 3rem 4%;
+    }
+
+    /* FILTER */
+    .filter-form{
+        flex-direction: column;
+    }
+
+    .filter-form *{
+        width: 100%;
+    }
+
+    /* CARDS */
+    .sell-box{
+        display: flex;
+        overflow-x: auto;
+        gap: 1rem;
+    }
+
+    .box-content{
+        min-width: 85%;
+    }
+
+    .card-img{
+        height: 170px;
+    }
+
+    .view-btn{
+        width: 100%;
+    }
+
+    /* CONTACT */
+    .contact-container{
+        flex-direction: column;
+    }
+}
+
+
+/* ===== 600px ===== */
+@media (max-width: 600px){
+
+    html{
+        font-size: 50%;
+    }
+
+    .sell-container h1{
+        font-size: 2.2rem;
+    }
+
+    .box-content{
+        min-width: 100%;
+    }
+
+    .card-img{
+        height: 160px;
+    }
+}
+
+
+/* ===== 480px ===== */
+@media (max-width: 480px){
+
+    html{
+        font-size: 48%;
+    }
+    html, body{
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+    }
+    header{
+        padding: 1rem 3%;
+    }
+
+    section{
+        padding: 2.5rem 3%;
+    }
+
+    .card-body h2{
+        font-size: 1.4rem;
+    }
+
+    .property-price{
+        font-size: 1.2rem;
+    }
+    .signUp {
+        top: 290px;
+    }
+    .servise-boxes {
+        flex-direction: column; /* Stacks boxes vertically */
+        align-items: center;    /* Centers boxes if they aren't full width */
+        padding: 0 2rem;        /* Adds some breathing room on the sides */
+    }
+
+    .box {
+        width: 100%;            /* Makes boxes take up the full container width */
+        max-width: 350px;       /* Prevents boxes from getting too wide on tablets */
+    }
+
+    .services-container h1 {
+        font-size: 2.2rem;      /* Shrinks the title slightly for small screens */
+        margin-bottom: 2rem;
+    }
+}
